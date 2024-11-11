@@ -1,0 +1,52 @@
+- Family: [Young Serif](https://fonts.google.com/specimen/Young+Serif)
+- Weights: 400
+
+- Family: [Outfit](https://fonts.google.com/specimen/Outfit)
+- Weights: 400, 600, 700
+
+Young-serif-regular
+  - 40px 100% ln 0 ls (text preset 1_)
+  - 20px 100% ln 0 ls (text preset 2)
+Outfit semibold
+  - 20px 100% ln 0 ls (Text preset 3)
+Outfit regular
+  - 16px 150% lh 0ls
+Outfit bold
+  - 16px 150% ln 0ls
+
+All text is left aligned
+
+Card 
+  - 24 br
+  - 736 fixed width in desktop (max-width)
+  - tablet and mobile it's fill width
+  - 40 padding
+   img 
+     - 300 hg
+     - fill width
+     - 12 br
+  title
+    - preset 1
+    - Stone-900
+
+- Adding spaces between the bullet point and the text was a pain because I moved the bullet points inside the element where by default they're outside. This made it so that you can't use the usual padding-left trick to add space between them, it seems like it considers the bullet point now part of the <li> element, so I had to add a span to add space between.  
+- this ended up being a non-issue by using the display: table-cell; trick where it treats the li as cells in a table and thus you have more control on the styling of them. Also worth remembering how to style the actual bullets or numbers of the li: list-style: none;
+    counter-reset: item; and then you have to assing the new styles using the ol li::before{} declaration (or ul li::before)
+- don't name classes and ids the same thing
+- The issue here is that the <col> element can only control certain styles, such as background-color, width, and border, but it cannot directly style the text properties (like color or font-weight) inside <td> cells.
+- To style only the second column’s content, use a CSS selector targeting the second <td> cell in each row, as follows:
+
+```CSS
+table td:nth-child(2) {
+    font-weight: bold;
+    color: var(--brown-800);
+}
+```
+
+A media query is a CSS rule that applies styles only when specific conditions are met. It typically looks like this:
+```CSS
+@media (condition) {
+  /* CSS styles go here */
+}
+```
+Should probably work more with tables since they're hard. Also responsiveness. Also customizing lists so I don't forget how it works. 
